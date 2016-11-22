@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/examsys" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+
+	<!-- 配置session factory -->
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<bean id="hibernate4SessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:/com/hainan/cs/hbm/*.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="userdao" class="com.hainan.cs.dao.UserDaoImp">
+		<property name="sessionFactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+	<bean id="judgedao" class="com.hainan.cs.dao.JudgeDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+	<bean id="answerdao" class="com.hainan.cs.dao.AnswerDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+	<bean id="choicedao" class="com.hainan.cs.dao.ChoiceDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+	<bean id="mcqdao" class="com.hainan.cs.dao.MCQDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+	<bean id="paperdao" class="com.hainan.cs.dao.PaperDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+	<bean id="questiondao" class="com.hainan.cs.dao.QuestionDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+	<bean id="testdao" class="com.hainan.cs.dao.TestDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+		<bean id="newtestdao" class="com.hainan.cs.dao.NewTestDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+		<bean id="newanswerdao" class="com.hainan.cs.dao.NewAnswerDaoImp">
+		<property name="sessionfactory" ref="hibernate4SessionFactory"></property>
+	</bean>
+</beans>

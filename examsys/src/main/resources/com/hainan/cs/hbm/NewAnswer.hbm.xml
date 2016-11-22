@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-27 10:08:37 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hainan.cs.bean.NewAnswer" table="NEWANSWER">
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="uuid" />
+        </id>
+        <property name="questionid" type="java.lang.String">
+            <column name="QUESTIONID" />
+        </property>
+        <property name="examineeid" type="java.lang.String">
+            <column name="EXAMINEEID" />
+        </property>
+        <property name="answer" type="java.lang.String">
+            <column name="ANSWER" />
+        </property>
+        <property name="paperid" type="java.lang.String">
+            <column name="PAPERID" />
+        </property>
+        <property name="credita" type="java.lang.String">
+            <column name="CREDITA" />
+        </property>
+        <property name="creditb" type="java.lang.String">
+            <column name="CREDITB" />
+        </property>
+        <property name="creditc" type="java.lang.String">
+            <column name="CREDITC" />
+        </property>
+        <property name="creditd" type="java.lang.String">
+            <column name="CREDITD" />
+        </property>
+        <property name="credity" type="java.lang.String">
+            <column name="CREDITY" />
+        </property>
+        <property name="creditn" type="java.lang.String">
+            <column name="CREDITN" />
+        </property>
+    </class>
+</hibernate-mapping>

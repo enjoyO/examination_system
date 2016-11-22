@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-27 10:08:37 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hainan.cs.bean.PaperBean" table="PAPERBEAN">
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="uuid" />
+        </id>
+        <property name="creatorid" type="java.lang.String">
+            <column name="CREATORID" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <property name="time" type="java.lang.String">
+            <column name="TIME" />
+        </property>
+        <property name="createtime" type="java.util.Date">
+            <column name="CREATETIME" />
+        </property>
+        <property name="paperinfo" type="java.lang.String">
+            <column name="PAPERINFO" />
+        </property>
+        <property name="papername" type="java.lang.String">
+            <column name="PAPERNAME" />
+        </property>
+    </class>
+</hibernate-mapping>
